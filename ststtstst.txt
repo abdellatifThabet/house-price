@@ -1,0 +1,4 @@
+Donc le choix depend toujours des résultats de choix des différents clusters de kmeans a chaque fois.
+Comme ce qu'on a fait on a essayer de savoir quel est le nombre optimale de clusters(components) pour le KMeans et pour faire ca on a afficher les résultats de plusieurs kmeans chacun avec un nombre différent de clusters(on a testé de 1 a 14 a peu prés) et puis on a affiché les résultats de chaque kmeans sur la courbe.
+Et aprés on a déterminé le nombre optimale des clusters qu'on va utilisé dans kmeans(on a choisi 5 et le prof peut choisi 6 c normale) de cette courbe dont 5 était le point ou ily avait une forte inclinaison dans la courbe.
+Le nombre de classes de kmeans = sur combien de classe les entreprises vont etre classées.
