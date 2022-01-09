@@ -34,6 +34,7 @@ def page_not_found(e):
 def pred():
     return redirect(url_for('Home'))
 
+##this is just a comment for testing the pipeline
 if __name__=="__main__":
     app.run(host='0.0.0.0',debug=True)
 
