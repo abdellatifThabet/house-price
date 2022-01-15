@@ -1,14 +1,24 @@
 pipeline {
     agent any
-
+    parameters{
+        booleanParam(name:'executeTest', defaultValue : true,description : '')
+    }
+    environment {
+        NEW_VERSION = "1.0"
+    }
     stages {
         stage('git cloning') {
             steps {
                 echo 'git cloning stage'
                 git 'https://github.com/abdellatifThabet/house-price'
             }            
-        } 
+        }
         stage('Build') {
+            when{
+                expression{
+                    params.executeTest
+                }
+            }
             steps {
                 echo 'Build the docker image'
                 sh 'docker build -t houce-price-app .'
@@ -16,8 +26,7 @@ pipeline {
                 sh 'docker run -d -p 5000:5000 houce-price-app'
                 
             }
-        }  
-
+        }
         stage('Deploy') {
             steps {
                 echo 'Deployment stage does not exist for ow'
