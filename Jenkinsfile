@@ -2,10 +2,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Build the docker image'
+                sh 'docker build -t houce-price-app .'
+                echo "running the container"
+                sh 'docker run -d -p 5000:5000 houce-price-app'
+                
             }
+        stage('Deploy') {
+            steps {
+                echo 'Deployment stage does not exist for ow'
+            }            
         }
     }
 }
