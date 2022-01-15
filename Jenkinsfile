@@ -12,16 +12,11 @@ pipeline {
                 echo 'git cloning stage'
                 git 'https://github.com/abdellatifThabet/house-price'
             }            
-        }
-        stage('Checking the branch name') {
-            steps {
-                echo "the branch name is : ${BRANCH_NAME}"
-            }            
-        }        
+        }    
         stage('Build') {
             when{
                 expression{
-                    params.executeTest && env.BRANCH_NAME == 'master'
+                    params.executeTest 
                 }
             }
             steps {
