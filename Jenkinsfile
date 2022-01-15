@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Build the docker image'
                 sh 'docker build -t houce-price-app .'
-                echo "running the container"
+                echo 'running the container'
                 sh 'docker run -d -p 5000:5000 houce-price-app'
                 
             }
