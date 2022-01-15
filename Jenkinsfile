@@ -13,6 +13,11 @@ pipeline {
                 git 'https://github.com/abdellatifThabet/house-price'
             }            
         }
+        stage('Checking the branch name') {
+            steps {
+                echo "the branch name is : ${env.BRANCH_NAME}"
+            }            
+        }        
         stage('Build') {
             when{
                 expression{
