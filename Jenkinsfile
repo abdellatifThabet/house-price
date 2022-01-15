@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             when{
                 expression{
-                    params.executeTest && ${env.BRANCH_NAME} == 'master'
+                    params.executeTest && env.BRANCH_NAME == 'master'
                 }
             }
             steps {
