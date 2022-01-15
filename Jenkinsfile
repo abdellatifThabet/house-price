@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             when{
                 expression{
-                    params.executeTest
+                    params.executeTest && BRANCH_NAME == 'master'
                 }
             }
             steps {
@@ -32,5 +32,18 @@ pipeline {
                 echo 'Deployment stage does not exist for ow'
             }            
         }
+    }
+    post{
+        always {
+            echo 'this will always be run'  
+        }
+        success {
+            echo 'this will be run only if the build succeeded'
+        }
+        failure {
+            echo 'this will be run in case of failure'
+        }
+
+
     }
 }
