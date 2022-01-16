@@ -29,7 +29,7 @@ def page_not_found(e):
     # note that we set the 404 status explicitly
     return render_template('page404.html'), 404
 
-
+############## ** #########
 @app.route('/predict',methods=['GET'])
 def pred():
     return redirect(url_for('Home'))
