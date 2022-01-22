@@ -28,12 +28,9 @@ pipeline {
                 sh 'docker run -d -p 5000:5000 houce-price-app'
                 
             }
-<<<<<<< HEAD
         }
           
-=======
-        }    
->>>>>>> f46cb2d5a6c294aa5f3f0fffcffe2b76e9dfcc1e
+         
         stage('Test') {
 
             steps {
