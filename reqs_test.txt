@@ -1,0 +1,4 @@
+-U pytest
+selenium
+webdriver-manager
+

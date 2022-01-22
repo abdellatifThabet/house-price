@@ -29,6 +29,15 @@ pipeline {
                 
             }
         }
+        }    
+        stage('Test') {
+
+            steps {
+                echo 'gui testing using selenium webdriver'
+                sh 'sh auto-test.sh'               
+            }
+        }
+
         stage('Deploy') {
             steps {
                 echo 'Deployment stage does not exist for ow'

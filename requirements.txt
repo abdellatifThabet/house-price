@@ -8,4 +8,4 @@ pandas
 gunicorn==19.9.0
 matplotlib==3.2.2
 scipy
-
+virtualenv
