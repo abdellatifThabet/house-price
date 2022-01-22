@@ -21,7 +21,7 @@ pipeline {
             }
             steps {
                 echo 'kill on port 5000 before running the container'
-                sh 'sudo kill -9 $(sudo lsof -t -i:5000) || true'
+                sh 'kill -9 $(sudo lsof -t -i:5000) || true'
                 echo 'Build the docker image'
                 sh 'docker build -t houce-price-app .'
                 echo 'running the container'
