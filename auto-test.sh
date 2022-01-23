@@ -10,11 +10,11 @@
 
 
 echo '#### Install requirements ####'
-pip install -r ./gui_automation/requirements.txt
+pip3 install -r ./gui_automation/requirements.txt
 
 
 echo '#### Run tests ####'
-python ./gui_automation/predict_price_scenario.py  
+python3 ./gui_automation/predict_price_scenario.py  
 
  
 #echo ### deactivate virtual environment ###
