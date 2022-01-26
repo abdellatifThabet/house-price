@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters{
-        booleanParam(name:'executeTest', defaultValue : true,description : '')
+        booleanParam(name:'validTest', defaultValue : true,description : '')
     }
     environment {
         NEW_VERSION = "1.0"
@@ -14,11 +14,7 @@ pipeline {
             }            
         }    
         stage('Build') {
-            when{
-                expression{
-                    params.executeTest 
-                }
-            }
+
             steps {
                 echo 'kill on port 5000 before running the container'
                 sh 'kill -9 $(lsof -t -i:5000) || true'
@@ -33,17 +29,14 @@ pipeline {
          
         stage('Test') {
 
+
             steps {
                 echo 'gui testing using selenium webdriver'
-                sh 'sh auto-test.sh'               
+                sh 'sh auto-test.sh'       
+                sh 'if [ $? -eq 0 ]; then echo test succeded; else test failed ;fi'        
             }
         }
 
-        stage('Deploy') {
-            steps {
-                echo 'Deployment stage does not exist for ow'
-            }            
-        }
     }
     post{
         always {
