@@ -18,11 +18,13 @@ pipeline {
             steps {
                 echo 'kill on port 5000 before running the container'
                 sh 'kill -9 $(lsof -t -i:5000) || true'
+                echo 'connecting to the docker hub'
+                sh 'docker login -u "abdou2020" -p "abdou54460380"'
                 echo 'Build the docker image'
-                sh 'docker build -t houce-price-app .'
-                echo 'running the container'
-                sh 'docker run -d -p 5000:5000 houce-price-app'
+                sh 'docker build -t abdou2020/houce-price-app .'
+                echo 'push to my docker hub'
                 
+                sh 'docker push abdou2020/houce-price-app'
             }
         }
           
@@ -40,13 +42,22 @@ pipeline {
     }
     post{
         always {
-            echo 'this will always be run'  
+            echo 'if test passes we will run the docker container on our vp server'  
         }
         success {
-            echo 'this will be run only if the build succeeded'
+            echo 'deploying our app on the vps'
+            echo 'connecting to the vps ...'
+            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
+            echo 'connecting to my docker hub'
+            sh 'docker login -u "abdou2020" -p "abdou54460380"'
+            echo 'pulling the image'
+            sh 'docker pull abdou2020/houce-price-app'
+            echo 'running the container'
+            sh 'docker run -d -p 5000:5000 houce-price-app'
+            
         }
         failure {
-            echo 'this will be run in case of failure'
+            echo 'the app failed in the test stage'
         }
 
 
