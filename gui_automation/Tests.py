@@ -3,11 +3,12 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox')
-#chrome_options.headless = True
+chrome_options.headless = True
 chrome_options.add_argument("--disable-notifications")
 chrome_options.add_argument("--start-maximized")
 #chrome_options.add_argument("--disable-dev-shm-usage")
-driver = webdriver.Chrome(executable_path='./chromedriver', options=chrome_options)
+#driver = webdriver.Chrome(executable_path='chromedriver', options=chrome_options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=chrome_options)
 url = 'http://localhost:5000/'
 
 
