@@ -53,7 +53,7 @@ pipeline {
             echo 'pulling the image'
             sh 'docker pull abdou2020/houce-price-app'
             echo 'running the container'
-            sh 'docker run -d -p 5000:5000 houce-price-app'
+            sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
             
         }
         failure {
