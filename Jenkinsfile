@@ -24,7 +24,7 @@ pipeline {
                 sh 'docker build -t abdou2020/houce-price-app .'
                 echo 'push to my docker hub'
                 
-                sh 'docker push abdou2020/houce-price-app'
+                //sh 'docker push abdou2020/houce-price-app'
             }
         }
           
