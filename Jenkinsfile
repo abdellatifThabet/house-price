@@ -21,10 +21,11 @@ pipeline {
                 echo 'connecting to the docker hub'
                 sh 'docker login -u "abdou2020" -p "abdou54460380"'
                 echo 'Build the docker image'
-                sh 'docker build -t abdou2020/houce-price-app .'
+                //sh 'docker build -t abdou2020/houce-price-app .'
                 echo 'push to my docker hub'
-                
-                sh 'docker push abdou2020/houce-price-app'
+                //sh 'docker push abdou2020/houce-price-app'
+                echo 'running container on localhost for testing'
+                sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
             }
         }
           
