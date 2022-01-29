@@ -53,7 +53,7 @@ pipeline {
             echo 'connecting to my docker hub'
             sh 'docker login -u "abdou2020" -p "abdou54460380"'
             echo 'pulling the image'
-            sh 'docker pull abdou2020/houce-price-app'
+            //sh 'docker pull abdou2020/houce-price-app'
             echo 'kill on port 5000 before running the container'
             sh'docker kill $(docker ps -q) | true'
             echo 'running the container'
