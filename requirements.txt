@@ -8,6 +8,9 @@ pandas
 gunicorn==19.9.0
 matplotlib==3.2.2
 scipy
+<<<<<<< HEAD
 matplotlib==3.2.2
 scipy
+=======
+>>>>>>> dbae7d6213d639f325b55e3bafd67241126e6514
 virtualenv

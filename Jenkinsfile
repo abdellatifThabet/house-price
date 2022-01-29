@@ -26,7 +26,6 @@ pipeline {
                 //sh 'docker push abdou2020/houce-price-app'
                 echo 'running container on localhost for testing'
                 sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
-                //sh 'docker push abdou2020/houce-price-app'
             }
         }
           
@@ -54,6 +53,8 @@ pipeline {
             sh 'docker login -u "abdou2020" -p "abdou54460380"'
             echo 'pulling the image'
             sh 'docker pull abdou2020/houce-price-app'
+            echo 'kill on port 5000 before running the container'
+            sh 'kill -9 $(lsof -t -i:5000) || true'
             echo 'running the container'
             sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
             
