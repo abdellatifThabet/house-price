@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'kill on port 5000 before running the container'
                 //sh 'kill -9 $(lsof -t -i:5000) || true'
-                sh 'fuser -n tcp -k 5000'
+                sh 'fuser -n tcp -k 5000 | true'
                 echo 'connecting to the docker hub'
                 sh 'docker login -u "abdou2020" -p "abdou54460380"'
                 echo 'Build the docker image'
@@ -55,7 +55,7 @@ pipeline {
             echo 'pulling the image'
             sh 'docker pull abdou2020/houce-price-app'
             echo 'kill on port 5000 before running the container'
-            sh 'fuser -n tcp -k 5000'
+            sh 'fuser -n tcp -k 5000 | true'
             echo 'running the container'
             sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
             
