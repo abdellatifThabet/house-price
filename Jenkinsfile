@@ -49,7 +49,7 @@ pipeline {
         success {
             echo 'deploying our app on the vps'
             echo 'connecting to the vps ...'
-            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
+            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -tt -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
             echo 'connecting to my docker hub'
             sh 'docker login -u "abdou2020" -p "abdou54460380"'
             echo 'pulling the image'
