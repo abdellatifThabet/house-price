@@ -49,16 +49,11 @@ pipeline {
         success {
             echo 'deploying our app on the vps'
             echo 'connecting to the vps ...'
-            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -tt -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
-            echo 'connecting to my docker hub'
-            sh 'docker login -u "abdou2020" -p "abdou54460380"'
-            echo 'pulling the image'
-            //sh 'docker pull abdou2020/houce-price-app'
-            echo 'kill on port 5000 before running the container'
-            sh'docker kill $(docker ps -q) | true'
-            echo 'running the container'
-            sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
-            
+            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
+            sh 'scp remote-cmds.sh ubuntu@51.254.126.68:/home/ubuntu/'
+            echo "pulling the image and running the container "
+            sh 'ssh ubuntu@51.254.126.68 "sh remote-cmds.sh"'
+
         }
         failure {
             echo 'the app failed in the test stage'
