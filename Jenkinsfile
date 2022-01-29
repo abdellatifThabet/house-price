@@ -49,7 +49,7 @@ pipeline {
         success {
             echo 'deploying our app on the vps'
             echo 'connecting to the vps ...'
-            sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
+            //sh 'sshpass -p "7Yd4Ya9pyNdf" ssh -o StrictHostKeyChecking=no ubuntu@51.254.126.68'
             sh 'scp remote-cmds.sh ubuntu@51.254.126.68:/home/ubuntu/'
             echo "pulling the image and running the container "
             sh 'ssh ubuntu@51.254.126.68 "sh remote-cmds.sh"'
