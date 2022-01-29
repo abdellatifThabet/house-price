@@ -26,6 +26,7 @@ pipeline {
                 //sh 'docker push abdou2020/houce-price-app'
                 echo 'running container on localhost for testing'
                 sh 'docker run -d -p 5000:5000 abdou2020/houce-price-app'
+                //sh 'docker push abdou2020/houce-price-app'
             }
         }
           
